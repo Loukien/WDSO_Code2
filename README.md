@@ -2,7 +2,6 @@
 ## Pierwszy Comit
 Inicjalizacja git
 ## Drugi Comit
-Dodanie plików cpp
+Dodanie plików .cpp i .h
 ## Trzeci Comit
-## Czwarty Comit
-## Piąty Comit
+Dodanie Makefile
