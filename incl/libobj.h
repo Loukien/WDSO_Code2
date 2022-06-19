@@ -1,0 +1,1 @@
+int objetosc(int dana);
