@@ -1,0 +1,37 @@
+.PHONY: koniec
+.SUFFIXES: .cpp .o .so .a
+
+vpath %.cpp ./src
+vpath %.h ./incl
+vpath %.a ./lib
+vpath %.so ./lib
+
+%2:
+	g++ -o ./bin/$@ $^ -L ./lib
+
+%2.o: %2.cpp
+	g++ -c $< -L ./lib -I ./incl
+
+%le.o: %le.cpp
+	g++ -c $<
+
+%sc.o: %sc.cpp
+	g++ -fPIC -c $<
+
+libp%.a: 
+	ar rs ./lib/$@ $<
+
+libo%.so: 
+	g++ -shared -o ./lib/$@ $<
+
+Code2: Code2.o libpol.a libobj.so
+Code2.o: Code2.cpp
+
+pol.o: pole.cpp
+obj.o: objetosc.cpp
+
+libpol.a: pol.o
+libobj.so: obj.o
+
+koniec:
+	rm -f ./bin/Code2 *.o ./lib/*.so ./lib/*.a
